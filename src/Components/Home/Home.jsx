@@ -4,9 +4,7 @@ const Home = () => {
     useDocumentTitle('Home')    
 
     return (
-        
-
-        <div>
+        <div className="container mx-auto min-h-screen">
             This is home
         </div>
     );
