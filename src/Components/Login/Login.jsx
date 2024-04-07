@@ -1,8 +1,46 @@
-import { Link } from "react-router-dom";
+import { useContext, useEffect } from 'react';
+import { AuthContext } from '../AuthProvider/AuthProvider';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { FcGoogle } from "react-icons/fc";
+import { AiFillGithub } from "react-icons/ai";
 import useDocumentTitle from "../../CustomHook/useDocumentTitle";
+
 const Login = () => {
 
     useDocumentTitle('Login');
+
+    const {loginUser,googleLogin,setUser,githubLogin,user} = useContext(AuthContext)
+    const location = useLocation()
+    const navigate = useNavigate()
+
+
+    const handleLogin = (e) =>{
+        e.preventDefault()
+ 
+        const email = e.target.email.value;
+        const password = e.target.password.value;
+ 
+
+        console.log(email,password)
+        loginUser(email,password)
+    }
+    const handleGoogleLogin = () =>{
+        googleLogin()
+        .then(result =>{
+            setUser(result.user)
+            navigate(location.state)
+        })
+    }
+    const handleGithubLogin = () =>{
+        githubLogin()
+        .then(result =>{setUser(result.user)})
+    }
+
+    useEffect(()=>{
+        if(user){
+            navigate(location.state)
+        }
+    },[user]);  
 
     return (
         <div className="container mx-auto hero min-h-screen ">
@@ -11,7 +49,7 @@ const Login = () => {
                     <h1 className="text-5xl font-bold">Login</h1>
                 </div>
                 <div className="card w-full shadow-2xl bg-base-100 md:w-96">
-                <form className="card-body">
+                <form onSubmit={handleLogin} className="card-body">
                     <div className="form-control">
                     <label className="label">
                         <span className="label-text">Email</span>
@@ -31,6 +69,13 @@ const Login = () => {
                         <button className="btn btn-primary">Login</button>
                     </div>
                 </form>
+
+                <div className="divider">OR</div>
+
+                <div className='text-center'>
+                    <button onClick={handleGoogleLogin} className='p-4 text-3xl'><FcGoogle /></button>
+                    <button onClick={handleGithubLogin } className='p-4 text-3xl'><AiFillGithub /></button>
+                </div>
                 </div>
             </div>
         </div>

@@ -7,6 +7,7 @@ export const AuthContext = createContext(null);
 // eslint-disable-next-line react/prop-types
 const AuthProvider = ({ children }) => {
     const [user,setUser] = useState(null)
+    const [isLoading,setLoading] = useState(true);
     const googleProvider = new GoogleAuthProvider()
     const githubProvider = new GithubAuthProvider()
     const registerUser = (email,password) =>{
@@ -28,6 +29,7 @@ const AuthProvider = ({ children }) => {
         return signOut(auth)
     }
     const authInfo={
+        isLoading,
         registerUser,
         loginUser,
         user,
@@ -44,6 +46,7 @@ const AuthProvider = ({ children }) => {
             } else {
               setUser(null)
             }
+            setLoading(false);
           });
 
           return ()=>{
