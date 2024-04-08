@@ -37,3 +37,5 @@
 * **DaisyUI:** A pre-built component library built on top of Tailwind CSS, offering pre-styled components for faster development.
 
 * **React Icons:** Provides a vast library of SVG icons for enhancing the user interface.
+
+* **React Toastify:**

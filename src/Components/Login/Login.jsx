@@ -3,6 +3,7 @@ import { AuthContext } from '../AuthProvider/AuthProvider';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FcGoogle } from "react-icons/fc";
 import { AiFillGithub } from "react-icons/ai";
+import {toast, Toaster} from "react-hot-toast"
 import useDocumentTitle from "../../CustomHook/useDocumentTitle";
 
 const Login = () => {
@@ -19,21 +20,36 @@ const Login = () => {
  
         const email = e.target.email.value;
         const password = e.target.password.value;
- 
-
-        console.log(email,password)
         loginUser(email,password)
+        .then(result =>{
+            console.log(result.user);
+            toast.success('Logged in sucessfully!')
+        })
+        .catch((error) =>{
+            toast.error(error.code);
+        })
     }
     const handleGoogleLogin = () =>{
         googleLogin()
         .then(result =>{
             setUser(result.user)
+            toast.success('Logged in sucessfully!')
             navigate(location.state)
+        })
+        .catch((error) =>{
+            toast.error(error.code);
         })
     }
     const handleGithubLogin = () =>{
         githubLogin()
-        .then(result =>{setUser(result.user)})
+        .then(result =>{
+            setUser(result.user)
+            toast.success('Logged in sucessfully!')
+            navigate(location.state)
+        })
+        .catch((error) =>{
+            toast.error(error.code);
+        })
     }
 
     useEffect(()=>{
@@ -78,6 +94,7 @@ const Login = () => {
                 </div>
                 </div>
             </div>
+            <div><Toaster position="top-right"/></div>
         </div>
     );
 };

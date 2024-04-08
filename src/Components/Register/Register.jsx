@@ -2,8 +2,9 @@ import { AiOutlineEye ,AiOutlineEyeInvisible } from "react-icons/ai";
 import useDocumentTitle from "../../CustomHook/useDocumentTitle";
 import { useContext, useRef, useState } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
-import { updateCurrentUser, updateProfile } from "firebase/auth";
-import { auth } from "../firebase/firebase.init";
+import {updateProfile } from "firebase/auth";
+import { Link } from "react-router-dom";
+import {toast, Toaster} from "react-hot-toast"
 
 
 
@@ -26,7 +27,7 @@ const Register = () => {
     const handleRegister = (e) =>{
         e.preventDefault()
         const name = e.target.name.value;
-        const photo = e.target.photo.value;
+        const photoURL = e.target.photo.value;
         const email = e.target.email.value;
         const password = e.target.password.value;
         const confirmPassword = e.target.confirmPassword.value;
@@ -70,9 +71,15 @@ const Register = () => {
 
         registerUser(email,password)
         .then(result=>{
+            updateProfile(result.user,{
+                displayName:name,
+                photoURL:photoURL
+            });
             setUser(result.user);
+            toast.success("Registration Successful!");
+
             formRef.current.reset();
-        })
+        })  
         .catch(error=> setError(error.message));
 
     }
@@ -80,6 +87,7 @@ const Register = () => {
 
     return (
         <div className="container mx-auto hero min-h-screen ">
+            
             <div className="hero-content flex-col gap-6">
                 <div className="text-center">
                     <h1 className="text-5xl font-bold">Register</h1>
@@ -87,41 +95,59 @@ const Register = () => {
                 <div className="card w-full shadow-2xl bg-base-100 md:w-96">
                     <form onSubmit={handleRegister} className="card-body" ref={formRef}>
                     <div>
+                    <label className="label">
+                        <span className="label-text">Name</span>
+                    </label>
                         <input name='name' type="text" placeholder="Name" className="input input-bordered w-full" />
                     </div>
                     {nameError && <small className='text-red-500'>{nameError}</small>}
                     <div>
+                    <label className="label">
+                        <span className="label-text">Email</span>
+                    </label>
                         <input name='email' type="text" placeholder="Email" className="input input-bordered w-full" />
                     </div>
                     {emailError && <small className='text-red-500'>{emailError}</small>}
                     <div>
+                    <label className="label">
+                        <span className="label-text">Photo</span>
+                    </label>
                         <input name='photo' type="text" placeholder="Photo URL" className="input input-bordered w-full" />
                     </div>
                     <div className="relative">
+                    <label className="label">
+                        <span className="label-text">Password</span>
+                    </label>
                         <input name='password' 
                         type={passVisibility?'text':'password'} 
                         placeholder="Password" className="input input-bordered w-full " />
 
-                        <a type="" onClick={handlePassVisibility} className="absolute right-2 top-1/3 text-xl hover:cursor-pointer">
+                        <a type="" onClick={handlePassVisibility} className="absolute right-2 top-12 text-xl hover:cursor-pointer">
                             {passVisibility?<AiOutlineEye/>:<AiOutlineEyeInvisible/>}
                         </a>
 
                     </div>
-                    <div className="relative">
+                    <div className="">
+                    <label className="label">
+                        <span className="label-text">Confirm Password</span>
+                    </label>
                         <input name='confirmPassword' 
                         type={passVisibility?'text':'password'} 
                         placeholder="Confirm password" className="input input-bordered w-full " />
-                        <a onClick={handlePassVisibility} className="absolute right-2 top-1/3 text-xl hover:cursor-pointer">
-                            {passVisibility?<AiOutlineEye/>:<AiOutlineEyeInvisible/>}
-                        </a>
+                        
                     </div>
                     {
                         error && <small className='text-red-500'>{error}</small>
                     }
+                    <label className="label">
+                        <Link to='/login'><a href="#" className="label-text-alt link link-hover">Log In</a></Link>
+                    </label>
                     <button type='submit' className='btn btn-primary w-full'>Register</button>
                     </form>
                 </div>
+                <div><Toaster position="top-right"/></div>
             </div>
+            
         </div>
     );
 };

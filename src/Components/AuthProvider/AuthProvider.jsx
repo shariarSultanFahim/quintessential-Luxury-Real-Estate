@@ -28,6 +28,23 @@ const AuthProvider = ({ children }) => {
     const logOut = () =>{
         return signOut(auth)
     }
+
+    useEffect(()=>{
+      const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+          if (currentUser) {
+           setUser(currentUser)
+          } else {
+            setUser(null)
+          }
+          setLoading(false);
+        });
+
+        return ()=>{
+          unsubscribe()
+        }
+  },[])
+
+
     const authInfo={
         isLoading,
         registerUser,
@@ -39,20 +56,7 @@ const AuthProvider = ({ children }) => {
         githubLogin
     }
     
-    useEffect(()=>{
-        const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-            if (currentUser) {
-             setUser(currentUser)
-            } else {
-              setUser(null)
-            }
-            setLoading(false);
-          });
-
-          return ()=>{
-            unsubscribe()
-          }
-    },[])
+    
 
   return (
     <div>
