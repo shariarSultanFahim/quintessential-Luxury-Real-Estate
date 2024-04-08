@@ -4,7 +4,7 @@ import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 const NavBar = () => {
 
-    const {isLoading,user,logOut} = useContext(AuthContext);
+    const {isLoading,user,userName,logOut} = useContext(AuthContext);
 
     const handleLogOut =()=>{
         logOut();   
@@ -12,7 +12,7 @@ const NavBar = () => {
 
     const items = <>
     <li><NavLink to='/' >Home</NavLink></li>
-    <li><NavLink to='/login'>login</NavLink></li>
+    <li><NavLink to='/profile'>Profile</NavLink></li>
     <li><NavLink to='/register'>register</NavLink></li>
     </>
 
@@ -42,6 +42,7 @@ const NavBar = () => {
             </div>
             <div className="navbar-end">
                 <div className="inline-flex items-center gap-2">
+                    <div className="group">
                     <div tabIndex={0} role="" className="btn btn-ghost btn-circle avatar">
                         {
                             isLoading?
@@ -51,6 +52,8 @@ const NavBar = () => {
                             :<div className="w-10 rounded-full">
                             <img alt="Tailwind CSS Navbar component" src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" /></div>
                         }
+                    </div>
+                    <span className="hidden absolute group-hover:block text-blue-200">{userName}</span>
                     </div>
                     <div>
                         {
