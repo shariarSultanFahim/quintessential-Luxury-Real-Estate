@@ -19,7 +19,7 @@ const Register = () => {
     }
 
     const formRef = useRef(null);
-    const {registerUser,setUser} = useContext(AuthContext);
+    const {registerUser,setUser,setCurrentPhoto,setUserName} = useContext(AuthContext);
     const [error,setError] = useState("");
     const [emailError,setEmailError] = useState("");
     const [nameError,setNameError] = useState("");
@@ -76,12 +76,13 @@ const Register = () => {
                 photoURL:photoURL
             });
             setUser(result.user);
+            setCurrentPhoto(photoURL);
+            setUserName(name);
             toast.success("Registration Successful!");
 
             formRef.current.reset();
         })  
         .catch(error=> setError(error.message));
-
     }
 
 
@@ -98,21 +99,21 @@ const Register = () => {
                     <label className="label">
                         <span className="label-text">Name</span>
                     </label>
-                        <input name='name' type="text" placeholder="Name" className="input input-bordered w-full" />
+                        <input name='name' type="text" placeholder="Name" className="input input-bordered w-full focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" />
                     </div>
                     {nameError && <small className='text-red-500'>{nameError}</small>}
                     <div>
                     <label className="label">
                         <span className="label-text">Email</span>
                     </label>
-                        <input name='email' type="text" placeholder="Email" className="input input-bordered w-full" />
+                        <input name='email' type="text" placeholder="Email" className="input input-bordered w-full focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" />
                     </div>
                     {emailError && <small className='text-red-500'>{emailError}</small>}
                     <div>
                     <label className="label">
                         <span className="label-text">Photo</span>
                     </label>
-                        <input name='photo' type="text" placeholder="Photo URL" className="input input-bordered w-full" />
+                        <input name='photo' type="text" placeholder="Photo URL" className="input input-bordered w-full focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" />
                     </div>
                     <div className="relative">
                     <label className="label">
@@ -120,7 +121,7 @@ const Register = () => {
                     </label>
                         <input name='password' 
                         type={passVisibility?'text':'password'} 
-                        placeholder="Password" className="input input-bordered w-full " />
+                        placeholder="Password" className="input input-bordered w-full focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" />
 
                         <a type="" onClick={handlePassVisibility} className="absolute right-2 top-12 text-xl hover:cursor-pointer">
                             {passVisibility?<AiOutlineEye/>:<AiOutlineEyeInvisible/>}
@@ -133,7 +134,7 @@ const Register = () => {
                     </label>
                         <input name='confirmPassword' 
                         type={passVisibility?'text':'password'} 
-                        placeholder="Confirm password" className="input input-bordered w-full " />
+                        placeholder="Confirm password" className="input input-bordered w-full focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" />
                         
                     </div>
                     {

@@ -1,5 +1,5 @@
 import  { createContext, useEffect, useState } from "react";
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword,GoogleAuthProvider, signInWithPopup,FacebookAuthProvider,onAuthStateChanged, signOut, GithubAuthProvider, updateProfile } from "firebase/auth";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword,GoogleAuthProvider, signInWithPopup,onAuthStateChanged, signOut, GithubAuthProvider } from "firebase/auth";
 import { auth } from "../firebase/firebase.init";
 
 export const AuthContext = createContext(null);
@@ -9,6 +9,7 @@ const AuthProvider = ({ children }) => {
     const [user,setUser] = useState(null)
     const [userName, setUserName] = useState(null);
     const [isLoading,setLoading] = useState(true);
+    const [currentPhoto, setCurrentPhoto] = useState('https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg');
     const googleProvider = new GoogleAuthProvider()
     const githubProvider = new GithubAuthProvider()
     const registerUser = (email,password) =>{
@@ -35,6 +36,7 @@ const AuthProvider = ({ children }) => {
           if (currentUser) {
            setUser(currentUser);
            setUserName(currentUser.displayName);
+           setCurrentPhoto(currentUser.photoURL);
           } else {
             setUser(null)
           }
@@ -45,7 +47,8 @@ const AuthProvider = ({ children }) => {
           unsubscribe()
         }
   },[])
-
+    console.log(user);  
+    
 
     const authInfo={
         isLoading,
@@ -53,10 +56,13 @@ const AuthProvider = ({ children }) => {
         loginUser,
         user,
         userName,
+        setUserName,
         logOut,
         setUser,
         googleLogin,
-        githubLogin
+        githubLogin,
+        currentPhoto, 
+        setCurrentPhoto
     }
     
     

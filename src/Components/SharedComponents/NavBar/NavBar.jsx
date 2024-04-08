@@ -4,16 +4,20 @@ import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 const NavBar = () => {
 
-    const {isLoading,user,userName,logOut} = useContext(AuthContext);
+    const {isLoading,user,userName,setUserName,logOut,currentPhoto,setCurrentPhoto} = useContext(AuthContext);
+    
 
     const handleLogOut =()=>{
-        logOut();   
+        logOut();
+        setUserName('');    
+        setCurrentPhoto('https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg')
     }
 
     const items = <>
     <li><NavLink to='/' >Home</NavLink></li>
-    <li><NavLink to='/profile'>Profile</NavLink></li>
-    <li><NavLink to='/register'>register</NavLink></li>
+    {
+        isLoading?'':user?<li><NavLink to='/profile'>Profile</NavLink></li>:<li><NavLink to='/register'>register</NavLink></li>
+    }
     </>
 
     return (
@@ -47,10 +51,8 @@ const NavBar = () => {
                         {
                             isLoading?
                             <span className="loading loading-spinner loading-md"></span>
-                            :user?.photoURL?<div className="w-10 rounded-full">
-                            <img alt="Profile Photo" src={user.photoURL} /></div>
                             :<div className="w-10 rounded-full">
-                            <img alt="Tailwind CSS Navbar component" src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" /></div>
+                            <img alt="Profile Photo" src={currentPhoto} /></div>
                         }
                     </div>
                     <span className="hidden absolute group-hover:block text-blue-200">{userName}</span>
