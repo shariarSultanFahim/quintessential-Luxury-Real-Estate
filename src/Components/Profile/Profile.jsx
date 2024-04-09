@@ -6,7 +6,7 @@ import useDocumentTitle from "../../CustomHook/useDocumentTitle";
 
 const Profile = () => {
     useDocumentTitle('Profile');
-    const {user,currentPhoto, setCurrentPhoto} = useContext(AuthContext);
+    const {user,setUserName,currentPhoto, setCurrentPhoto} = useContext(AuthContext);
 
     const [currentName, setCurrentName] = useState(user.displayName);
     const [currentEmail, setCurrentEmail] = useState(user.email);
@@ -20,6 +20,7 @@ const Profile = () => {
 
         if(name.length !=0){
             setCurrentName(name);
+            setUserName(name);
             updateProfile(user,{
                 displayName:name
             })
@@ -75,7 +76,7 @@ const Profile = () => {
                         <div><label className="block text-sm font-medium text-gray-700">Country/Region</label>
                         <input type="text" name="country" className="w-full px-3 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" placeholder="country"/></div>
                     </div>
-                    <div className="mt-5 text-center"><button className="btn btn-primary profile-button">Save Profile</button></div>
+                    <div className="mt-5 text-center"><button className="btn btn-primary profile-button">Update  Profile</button></div>
                 </form>
                 
             </div>

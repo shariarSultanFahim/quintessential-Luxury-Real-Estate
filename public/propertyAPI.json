@@ -6,7 +6,7 @@
     "segment_name": "Penthouse",
     "description": "A stunning penthouse apartment with breathtaking ocean views. Enjoy luxurious amenities and a private balcony.",
     "price": "$10,000,000",
-    "Status": "sale",
+    "Status": "Sale",
     "Area": "3,500 sq ft",
     "location": "Miami, Florida",
     "facilities": ["Living Room", "Swimming Pool", "Gym", "Balcony", "Ocean View"]
@@ -18,7 +18,7 @@
     "segment_name": "Private Island",
     "description": "Your own secluded island paradise with pristine beaches and crystal-clear waters. Perfect for ultimate privacy and relaxation.",
     "price": "$50,000,000",
-    "Status": "sale",
+    "Status": "Sale",
     "Area": "50 Acres",
     "location": "Caribbean Sea",
     "facilities": ["Beachfront", "Private Dock", "Helipad", "Staff Quarters", "Multiple Residences"]
@@ -30,7 +30,7 @@
     "segment_name": "Mansion",
     "description": "A luxurious mountainside mansion with ski-in/ski-out access and breathtaking mountain views. Perfect for winter getaways.",
     "price": "$15,000,000",
-    "Status": "sale",
+    "Status": "Sale",
     "Area": "7,000 sq ft",
     "location": "Aspen, Colorado",
     "facilities": ["Home Theater", "Spa", "Game Room", "Ski Storage", "Fireplace"]
@@ -42,7 +42,7 @@
     "segment_name": "Villa",
     "description": "A charming Tuscan villa nestled amidst rolling vineyards. Enjoy stunning views, a private pool, and close proximity to wineries.",
     "price": "$8,000,000",
-    "Status": "sale",
+    "Status": "Sale",
     "Area": "4,000 sq ft",
     "location": "Tuscany, Italy",
     "facilities": ["Home Theater", "Spa", "Game Room", "Ski Storage", "Fireplace"]
@@ -54,7 +54,7 @@
     "segment_name": "Beachfront",
     "description": "A luxurious beachfront property with private beach access and stunning ocean views. Perfect for relaxation and enjoying water activities.",
     "price": "$12,000,000",
-    "Status": "sale",
+    "Status": "Sale",
     "Area": "5,000 sq ft",
     "location": "Malibu, California",
     "facilities": ["Beachfront Access", "Infinity Pool", "Outdoor Kitchen", "Fire Pit", "Tennis Court"]
@@ -66,7 +66,7 @@
     "segment_name": "Beachfront",
     "description": "A stunning estate within a gated waterfront community. Enjoy private beach access, boat dock, and luxurious amenities.",
     "price": "$20,000,000",
-    "Status": "sale",
+    "Status": "Sale",
     "Area": "10,000 sq ft",
     "location": "Fort Lauderdale, Florida",
     "facilities": ["Private Beach Access", "Boat Dock", "Clubhouse", "Tennis Courts", "Security Gate"]
@@ -78,7 +78,7 @@
     "segment_name": "Resort",
     "description": "A luxurious island resort featuring private overwater bungalows with stunning ocean views and impeccable service.",
     "price": "$5,000 per night",
-    "Status": "rent",
+    "Status": "Rent",
     "Area": "Varies (per bungalow)",
     "location": "Maldives",
     "facilities": ["Overwater Bungalows", "Private Pool (in some bungalows)", "Spa", "Multiple Restaurants", "Water Activities"]
@@ -90,7 +90,7 @@
     "segment_name": "Penthouse",
     "description": "A sleek and modern penthouse apartment with breathtaking city skyline views. Enjoy top-of-the-line amenities and a private rooftop terrace.",
     "price": "$25,000,000",
-    "Status": "sale",
+    "Status": "Sale",
     "Area": "4,500 sq ft",
     "location": "New York City, New York",
     "facilities": ["Living Room with Fireplace", "Gourmet Kitchen", "Home Theater", "Fitness Center", "Rooftop Terrace"]
@@ -102,7 +102,7 @@
     "segment_name": "Resort",
     "description": "Immerse yourself in nature at this luxurious eco-lodge nestled within a tropical rainforest. Experience sustainable practices and unparalleled wildlife encounters.",
     "price": "$2,500 per night",
-    "Status": "rent",
+    "Status": "Rent",
     "Area": "Varies (per accommodation)",
     "location": "Costa Rica",
     "facilities": ["Private Bungalows", "Spa with Natural Treatments", "Guided Nature Tours", "Swimming Pool", "On-site Restaurant"]
@@ -114,7 +114,7 @@
     "segment_name": "Mansion",
     "description": "Step back in time at this magnificent historic castle estate. Enjoy expansive grounds, luxurious interiors, and a rich history.",
     "price": "Price Upon Request",
-    "Status": "sale",
+    "Status": "Sale",
     "Area": "20,000 sq ft",
     "location": "French Countryside, France",
     "facilities": ["Grand Hall", "Multiple Bedrooms and Bathrooms", "Formal Gardens", "Heated Pool", "Staff Quarters"]
@@ -126,7 +126,7 @@
     "segment_name": "Villa",
     "description": "Escape to tranquility at this cozy and luxurious mountain cabin retreat. Enjoy breathtaking mountain views, a private hot tub, and easy access to outdoor activities.",
     "price": "$10,000 per week",
-    "Status": "rent",
+    "Status": "Rent",
     "Area": "2,000 sq ft",
     "location": "Lake Tahoe, Nevada",
     "facilities": ["Living Room with Fireplace", "Fully Equipped Kitchen", "Game Room", "Hot Tub", "Deck with Mountain Views"]
@@ -138,7 +138,7 @@
     "segment_name": "Villa",
     "description": "Own a piece of wine country paradise with this award-winning vineyard estate winery. Enjoy breathtaking views, your own production of premium wines, and luxurious accommodations.",
     "price": "Price Upon Request",
-    "Status": "sale",
+    "Status": "Sale",
     "Area": "Varies (includes vineyard and residence)",
     "location": "Napa Valley, California",
     "facilities": ["Vineyards", "Production Winery", "Luxury Residence", "Tasting Room", "Guest Cottages"]

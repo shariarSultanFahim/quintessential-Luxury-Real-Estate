@@ -1,18 +1,30 @@
 import useDocumentTitle from "../../CustomHook/useDocumentTitle"
-import { useRef, useEffect } from 'react';
 import { register } from 'swiper/element/bundle';
+import useWindowSize from "../../CustomHook/windowSize";
+import Properties from "../Properties/Properties";
+import { useState } from "react";
 
 
 
 const Home = () => {
     useDocumentTitle('Home');
+    const {width} = useWindowSize();
+
     register();
+
+    const [isOpenFull, setIsOpenFull] = useState(false);
+    const options = ['Option 1', 'Option 2', 'Option 3', 'Option 4', 'Option 5','Option 6'];
+  
+    const toggleFullList = () => {
+      setIsOpenFull(!isOpenFull);
+    };
 
     return (
         <div className="container mx-auto min-h-screen">
             
+            {/* Corousel Banner */}
             <div className=" mx-auto w-[95%] h-[150px] md:w-full md:h-[500px] overflow-hidden">
-                <swiper-container slides-per-view="1" Speed="500" Loop='true' Navigation="true">
+                <swiper-container slides-per-view="1" Speed="500" Loop='true' Navigation={(width < 768)?'false':'true'}>
                 <swiper-slide  >
                     <div className="relative">
                     <h1 className="animate__animated animate__backInLeft text-3xl left-[10%] top-[10%]  md:text-6xl absolute z-50 md:top-[25%] md:left-12 text-white font-jetBrains">Quintessential <br /> 
@@ -72,7 +84,48 @@ const Home = () => {
                     </div>
                 </swiper-slide>
                 </swiper-container>
-            </div>   
+            </div>
+
+            {/* Property Listing Header and Filer*/}
+            <div className=" container mx-auto my-10">
+            <h1 className="font-jetBrains text-xl">Residential Properties for Sale & Rent</h1>
+
+            <div className="mt-10 relative inline-block border rounded-md w-full">
+                <div className="overflow-hidden bg-white rounded-md shadow-sm">
+                    <ul className="py-1 flex justify-evenly ">
+                    {options.slice(0, 3).map((option, index) => (
+                        <li
+                        key={index}
+                        className="block px-4 py-2 text-blue-700 hover:underline hover:cursor-pointer">
+                        {option}
+                        </li>
+                    ))}</ul>
+                    {isOpenFull && (
+                        <ul className="py-1 flex justify-evenly ">
+                        {options.slice(3).map((option, index) => (
+                            <li
+                            key={index + 3}
+                            className="block px-4 py-2 text-blue-700 hover:underline hover:cursor-pointer"
+                            >
+                            {option}
+                            </li>
+                        ))}
+                        </ul>
+                    )}
+                    
+                </div>
+                
+                <button
+                    className="mx-auto w-full text-center text-xs text-green-700 font-bold hover:cursor-pointer mt-2"
+                    onClick={toggleFullList}>
+                    {isOpenFull ? 'VIEW FEWER LOCATIONS' : 'VIEW ALL LOCATIONS'}
+                </button>
+                
+            </div>
+            
+            </div>
+            {/*Property Listing*/}
+            <Properties></Properties>
         </div>
     );
 };

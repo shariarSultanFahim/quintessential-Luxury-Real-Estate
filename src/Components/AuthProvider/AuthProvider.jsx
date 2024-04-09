@@ -49,6 +49,28 @@ const AuthProvider = ({ children }) => {
   },[]) 
     
 
+
+  // API Loading
+      const [property, setProperty] = useState(null);
+      const [apiLoading, setApiLoading] = useState(true);
+      const [error, setError] = useState(null);
+
+      const fetchData = async () => {
+        try {
+          const response = await fetch('/public/propertyAPI.json');
+          const responseData = await response.json();
+          setProperty(responseData);
+        } catch (error) {
+          setError(error);  
+        } finally {
+          setApiLoading(false);
+        }
+      };
+
+      useEffect(() => {
+        fetchData();
+      }, []);
+
     const authInfo={
         isLoading,
         registerUser,
@@ -61,7 +83,9 @@ const AuthProvider = ({ children }) => {
         googleLogin,
         githubLogin,
         currentPhoto, 
-        setCurrentPhoto
+        setCurrentPhoto,
+        property,
+        apiLoading
     }
     
     
