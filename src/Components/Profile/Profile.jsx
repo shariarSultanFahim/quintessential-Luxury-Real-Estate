@@ -2,8 +2,10 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import { updateProfile } from "firebase/auth";
 import {toast, Toaster} from "react-hot-toast"
+import useDocumentTitle from "../../CustomHook/useDocumentTitle";
 
 const Profile = () => {
+    useDocumentTitle('Profile');
     const {user,currentPhoto, setCurrentPhoto} = useContext(AuthContext);
 
     const [currentName, setCurrentName] = useState(user.displayName);

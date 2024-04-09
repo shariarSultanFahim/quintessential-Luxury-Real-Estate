@@ -15,9 +15,7 @@ const NavBar = () => {
 
     const items = <>
     <li><NavLink to='/' >Home</NavLink></li>
-    {
-        isLoading?'':user?<li><NavLink to='/profile'>Profile</NavLink></li>:<li><NavLink to='/register'>register</NavLink></li>
-    }
+    <li><NavLink to='/profile'>Profile</NavLink></li>
     </>
 
     return (
@@ -47,15 +45,15 @@ const NavBar = () => {
             <div className="navbar-end">
                 <div className="inline-flex items-center gap-2">
                     <div className="group">
-                    <div tabIndex={0} role="" className="btn btn-ghost btn-circle avatar">
+                    <div tabIndex={0} role="" className="btn bg-transparent border-transparent hover:bg-transparent hover:border-transparent btn-circle avatar">
                         {
-                            isLoading?
+                            user?isLoading?
                             <span className="loading loading-spinner loading-md"></span>
                             :<div className="w-10 rounded-full">
-                            <img alt="Profile Photo" src={currentPhoto} /></div>
+                            <img alt="Profile Photo" src={currentPhoto} /></div>:''
                         }
                     </div>
-                    <span className="hidden absolute group-hover:block text-blue-200">{userName}</span>
+                    <span className="hidden absolute group-hover:block text-gray-700">{userName}</span>
                     </div>
                     <div>
                         {

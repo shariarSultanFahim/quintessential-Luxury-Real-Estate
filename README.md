@@ -18,7 +18,7 @@
 
 # Live Site:
 
-## Visit the live website at 
+## Visit the live website at https://quintessentialhousing.surge.sh/
 
 
 
@@ -39,3 +39,5 @@
 * **React Icons:** Provides a vast library of SVG icons for enhancing the user interface.
 
 * **React Toastify:**
+
+* **Animate.css*:**

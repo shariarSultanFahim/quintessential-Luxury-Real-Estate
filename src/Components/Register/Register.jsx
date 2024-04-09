@@ -91,47 +91,37 @@ const Register = () => {
             
             <div className="hero-content flex-col gap-6">
                 <div className="text-center">
-                    <h1 className="text-5xl font-bold">Register</h1>
+                    <h1 className="text-gray-600 text-5xl font-bold">Register</h1>
                 </div>
                 <div className="card w-full shadow-2xl bg-base-100 md:w-96">
                     <form onSubmit={handleRegister} className="card-body" ref={formRef}>
                     <div>
-                    <label className="label">
-                        <span className="label-text">Name</span>
-                    </label>
+                    
                         <input name='name' type="text" placeholder="Name" className="input input-bordered w-full focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" />
                     </div>
                     {nameError && <small className='text-red-500'>{nameError}</small>}
                     <div>
-                    <label className="label">
-                        <span className="label-text">Email</span>
-                    </label>
+                    
                         <input name='email' type="text" placeholder="Email" className="input input-bordered w-full focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" />
                     </div>
                     {emailError && <small className='text-red-500'>{emailError}</small>}
                     <div>
-                    <label className="label">
-                        <span className="label-text">Photo</span>
-                    </label>
+                    
                         <input name='photo' type="text" placeholder="Photo URL" className="input input-bordered w-full focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" />
                     </div>
                     <div className="relative">
-                    <label className="label">
-                        <span className="label-text">Password</span>
-                    </label>
+                   
                         <input name='password' 
                         type={passVisibility?'text':'password'} 
                         placeholder="Password" className="input input-bordered w-full focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" />
 
-                        <a type="" onClick={handlePassVisibility} className="absolute right-2 top-12 text-xl hover:cursor-pointer">
+                        <a type="" onClick={handlePassVisibility} className="absolute right-2 top-1/3 text-xl hover:cursor-pointer">
                             {passVisibility?<AiOutlineEye/>:<AiOutlineEyeInvisible/>}
                         </a>
 
                     </div>
                     <div className="">
-                    <label className="label">
-                        <span className="label-text">Confirm Password</span>
-                    </label>
+                   
                         <input name='confirmPassword' 
                         type={passVisibility?'text':'password'} 
                         placeholder="Confirm password" className="input input-bordered w-full focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" />
@@ -141,9 +131,10 @@ const Register = () => {
                         error && <small className='text-red-500'>{error}</small>
                     }
                     <label className="label">
-                        <Link to='/login'><a href="#" className="label-text-alt link link-hover">Log In</a></Link>
+                        <p className="label-text-alt ">Already have an account?</p>
+                        <Link to='/login'><a className="label-text-alt link link-hover">Log In</a></Link>
                     </label>
-                    <button type='submit' className='btn btn-primary w-full'>Register</button>
+                    <button type='submit' className='btn btn-neutral w-full'>Register</button>
                     </form>
                 </div>
                 <div><Toaster position="top-right"/></div>

@@ -1,11 +1,14 @@
 import useDocumentTitle from "../../CustomHook/useDocumentTitle"
 
+
+
+
 const Home = () => {
     useDocumentTitle('Home')    
 
     return (
         <div className="container mx-auto min-h-screen">
-            This is home
+            <h1 className="animate__animated animate__backInLeft">This is Home</h1>
         </div>
     );
 };
