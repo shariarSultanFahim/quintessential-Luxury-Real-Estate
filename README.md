@@ -41,3 +41,5 @@
 * **React Toastify:**
 
 * **Animate.css*:**
+
+* **Swiper*:**
