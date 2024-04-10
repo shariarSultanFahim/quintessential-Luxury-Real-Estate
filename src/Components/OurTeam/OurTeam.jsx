@@ -1,8 +1,11 @@
 import Aos from "aos";
 import 'aos/dist/aos.css'
 import { useEffect } from "react";
+import useWindowSize from "../../CustomHook/windowSize";
 
 const OurTeam = () => {
+    const {width} = useWindowSize();
+    
     useEffect(()=>{
         Aos.init();
     },[])
@@ -15,7 +18,7 @@ const OurTeam = () => {
                 <p className="font-light text-gray-500 sm:text-xl">Looking for a team that puts you first? Our crew brings a wealth of experience to the table. We are committed to understanding your needs and developing solutions that exceed your expectations.</p>
             </div> 
             <div className="grid gap-8 lg:gap-16 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-                <div data-aos="fade-up" className="text-center text-gray-500">
+                <div data-aos={(width<1024)?'fade-up':'fade-right'} className="text-center text-gray-500">
                     <img className="mx-auto mb-4 w-36 h-36 rounded-full" src="https://scontent.fjsr8-1.fna.fbcdn.net/v/t39.30808-6/324246364_3410179359308087_4889016142825892508_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeFLb2xS3nipu9Z6-_Gb07kvbVw5yXIXeG5tXDnJchd4bv61A_8TCFKcoWifBLfkBHl2t_pMPNa3dQ4GF7gijHgb&_nc_ohc=6Loi3ElH1RQAb5gcuxn&_nc_ht=scontent.fjsr8-1.fna&oh=00_AfDjY9L-YGqFHmBGaC4mGSdcEkjpTgjAp4P9AS5rIrvOoA&oe=661BB620"/>
                     <h3 className="mb-1 text-2xl font-bold tracking-tight text-gray-900 ">
                         <a >Shariar Sultan</a>
@@ -44,7 +47,7 @@ const OurTeam = () => {
                         </li> 
                     </ul>
                 </div>
-                <div data-aos="fade-up" className="overflow-hidden text-center text-gray-500">
+                <div data-aos={(width<1024)?'fade-up':'fade-right'} className="overflow-hidden text-center text-gray-500">
                     <img className="mx-auto mb-4 w-36 h-36 rounded-full" src="https://i.insider.com/634daeb46bd527001914ffc5?width=433&format=jpeg" alt="Helene Avatar"/>
                     <h3 className="mb-1 text-2xl font-bold tracking-tight text-gray-900 ">
                         <a >Ted Mosby</a>
@@ -73,7 +76,7 @@ const OurTeam = () => {
                         </li> 
                     </ul>
                 </div>
-                <div data-aos="fade-up" className="text-center text-gray-500">
+                <div data-aos={(width<1024)?'fade-up':'fade-left'} className="text-center text-gray-500">
                     <img className="mx-auto mb-4 w-36 h-36 rounded-full" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png" alt="Jese Avatar"/>
                     <h3 className="mb-1 text-2xl font-bold tracking-tight text-gray-900 ">
                         <a >Jese Leos</a>
@@ -102,7 +105,7 @@ const OurTeam = () => {
                         </li> 
                     </ul>
                 </div>
-                <div data-aos="fade-up" className="text-center text-gray-500">
+                <div data-aos={(width<1024)?'fade-up':'fade-left'} className="text-center text-gray-500">
                     <img className="mx-auto mb-4 w-36 h-36 rounded-full" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/joseph-mcfall.png" alt="Joseph Avatar"/>
                     <h3 className="mb-1 text-2xl font-bold tracking-tight text-gray-900 ">
                         <a >Joseph Mcfall</a>
@@ -131,7 +134,7 @@ const OurTeam = () => {
                         </li> 
                     </ul>
                 </div>
-                <div data-aos="fade-up" className="text-center text-gray-500">
+                <div data-aos={(width<1024)?'fade-up':'fade-right'} className="text-center text-gray-500">
                     <img className="mx-auto mb-4 w-36 h-36 rounded-full" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/sofia-mcguire.png" alt="Sofia Avatar"/>
                     <h3 className="mb-1 text-2xl font-bold tracking-tight text-gray-900 ">
                         <a >Lana Byrd</a>
@@ -160,7 +163,7 @@ const OurTeam = () => {
                         </li> 
                     </ul>
                 </div>
-                <div data-aos="fade-up" className="text-center text-gray-500">
+                <div data-aos={(width<1024)?'fade-up':'fade-right'} className="text-center text-gray-500">
                     <img className="mx-auto mb-4 w-36 h-36 rounded-full" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/thomas-lean.png" alt="Leslie Avatar"/>
                     <h3 className="mb-1 text-2xl font-bold tracking-tight text-gray-900 ">
                         <a >Leslie Livingston</a>
@@ -189,7 +192,7 @@ const OurTeam = () => {
                         </li> 
                     </ul>
                 </div>
-                <div data-aos="fade-up" className="text-center text-gray-500">
+                <div data-aos={(width<1024)?'fade-up':'fade-left'} className="text-center text-gray-500">
                     <img className="mx-auto mb-4 w-36 h-36 rounded-full" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/michael-gouch.png" alt="Michael Avatar"/>
                     <h3 className="mb-1 text-2xl font-bold tracking-tight text-gray-900 ">
                         <a >Michael Gough</a>
@@ -218,7 +221,7 @@ const OurTeam = () => {
                         </li> 
                     </ul>
                 </div>
-                <div data-aos="fade-up" className="text-center text-gray-500">
+                <div data-aos={(width<1024)?'fade-up':'fade-left'} className="text-center text-gray-500">
                     <img className="mx-auto mb-4 w-36 h-36 rounded-full" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/neil-sims.png" alt="Neil Avatar"/>
                     <h3 className="mb-1 text-2xl font-bold tracking-tight text-gray-900 ">
                         <a >Neil Sims</a>

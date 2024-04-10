@@ -99,12 +99,12 @@ const Login = () => {
                     <div className="form-control">
                     <label className="label">
                         <a className="label-text-alt">New to our site?</a>
-                        <Link to='/register'><a href="#" className="label-text-alt link link-hover">Register Now</a></Link>
+                        <Link to='/register'><a  className="label-text-alt link link-hover">Register Now</a></Link>
                     </label>
 
                     </div>
                     <div className="form-control mt-6">
-                        <button className="btn btn-neutral">Login</button>
+                        <button className="btn text-white bg-primary-700 hover:bg-primary-800">Login</button>
                     </div>
                 </form>
                 </div>

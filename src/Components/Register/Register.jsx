@@ -134,7 +134,7 @@ const Register = () => {
                         <p className="label-text-alt ">Already have an account?</p>
                         <Link to='/login'><a className="label-text-alt link link-hover">Log In</a></Link>
                     </label>
-                    <button type='submit' className='btn btn-neutral w-full'>Register</button>
+                    <button type='submit' className="btn w-full text-white bg-primary-700 hover:bg-primary-800">Register</button>
                     </form>
                 </div>
                 <div><Toaster position="top-right"/></div>

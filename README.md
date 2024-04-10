@@ -24,24 +24,20 @@
 
 # Technologies Used:
 
-* **Node.js and npm:** The project utilizes Node.js as the runtime environment and npm for package management.
+## This section highlights the key technologies that enable the website's functionalities:
 
-* **React:** The website is built using React, a popular JavaScript library for building user interfaces.
+* **Front-End Framework:** Tailwind CSS and DaisyUI (combined into one point)
+    * Provides a robust foundation for building responsive and visually appealing layouts.
 
-* **React Router Dom:** This package enables navigation within the single-page React application.
+**JavaScript Libraries:**
+* **React:** The core library for building dynamic and interactive user interfaces.
 
-* **Firebase:** Firebase by Google provides backend services like authentication, database (Firestore), and storage.
+* **React Router DOM:** Enables smooth navigation between different property listings and pages.
 
-* **Tailwind CSS:** A utility-first CSS framework allowing for rapid and responsive design.
+* **Swiper.js:** A popular library for creating touch-enabled sliders and carousels (mention if it's used for image galleries).
 
-* **DaisyUI:** A pre-built component library built on top of Tailwind CSS, offering pre-styled components for faster development.
+* **Firebase:** Handles backend functionalities like data storage (property listings), user authentication (if applicable), and real-time updates.
 
-* **React Icons:** Provides a vast library of SVG icons for enhancing the user interface.
+* **Animate.css:** lightweight library providing a collection of pre-built CSS animation classes.
 
-* **React Toastify:**
-
-* **Animate.css*:**
-
-* **Swiper*:**
-
-* **AOS*:**
+* **AOS:** A JavaScript library that simplifies the process of adding scroll-based animations.

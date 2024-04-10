@@ -42,7 +42,7 @@ const Home = () => {
         <div className="container mx-auto min-h-screen">
             
             {/* Corousel Banner */}
-            <div className=" mx-auto w-[95%] h-[150px] md:w-full md:h-[500px] overflow-hidden">
+            <div className="mx-auto w-[95%] h-[150px] md:w-full md:h-[500px] overflow-hidden">
                 <swiper-container slides-per-view="1" Speed="500" Loop='true' Navigation={(width < 768)?'false':'true'}>
                 <swiper-slide  >
                     <div className="relative">
@@ -107,7 +107,7 @@ const Home = () => {
 
             {/* Property Listing Header and Filter*/}
             <div className=" container mx-auto my-10">
-            <h1 className="font-jetBrains text-xl">Residential Properties for Sale & Rent</h1>
+            <h1 className="font-jetBrains text-xl pl-2 md:pl-0">Residential Properties for Sale & Rent</h1>
 
             <div className="mt-10 relative inline-block border rounded-md w-full">
                 <div className="overflow-hidden bg-white rounded-md ">

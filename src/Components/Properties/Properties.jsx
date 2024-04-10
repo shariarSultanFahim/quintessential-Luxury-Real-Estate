@@ -90,7 +90,7 @@ const Properties = () => {
             <h1 className=" text-xl font-bold text-green-700 inline-flex items-center gap-2"><BsPhone/>+880 1748715273</h1>
             <div className="modal-action">
             <form method="dialog">
-                <button className="btn">Close</button>
+                <button  type="submit" className="py-3 px-5 text-sm font-medium text-center text-white rounded-lg bg-primary-700 sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 ">X</button>
             </form>
             </div>
         </div>
@@ -101,8 +101,8 @@ const Properties = () => {
             <p className="py-4 hover:underline">quintessentialproperties.com</p>
             <h1 className=" text-xl font-medium text-green-700 inline-flex items-center gap-2"><MdOutlineMailOutline/>info@quintessentialproperties.com</h1>
             <div className="modal-action">
-            <form method="dialog">
-                <button className="btn">Close</button>
+            <form method="dialog" >
+                <button  type="submit" className="py-3 px-5 text-sm font-medium text-center text-white rounded-lg bg-primary-700 sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 ">X</button>
             </form>
             </div>
         </div>
