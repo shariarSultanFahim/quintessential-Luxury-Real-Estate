@@ -13,6 +13,7 @@
     "@react-email/button": "0.0.14",
     "animate.css": "^4.1.1",
     "animate.css-react": "^1.1.0",
+    "aos": "^2.3.4",
     "firebase": "^10.10.0",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.4",

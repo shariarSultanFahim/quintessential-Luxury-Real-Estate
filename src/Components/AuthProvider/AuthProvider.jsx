@@ -9,6 +9,7 @@ const AuthProvider = ({ children }) => {
     const [user,setUser] = useState(null)
     const [userName, setUserName] = useState(null);
     const [isLoading,setLoading] = useState(true);
+    const [showAllBtn , setShowAllBtn] = useState(false);
     const [currentPhoto, setCurrentPhoto] = useState('https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg');
     const googleProvider = new GoogleAuthProvider()
     const githubProvider = new GithubAuthProvider()
@@ -54,12 +55,14 @@ const AuthProvider = ({ children }) => {
       const [property, setProperty] = useState(null);
       const [apiLoading, setApiLoading] = useState(true);
       const [error, setError] = useState(null);
+      const [filterProperty, setFilterProperty] = useState(null);
 
       const fetchData = async () => {
         try {
-          const response = await fetch('/public/propertyAPI.json');
+          const response = await fetch('/propertyAPI.json');
           const responseData = await response.json();
           setProperty(responseData);
+          setFilterProperty(responseData);
         } catch (error) {
           setError(error);  
         } finally {
@@ -70,6 +73,8 @@ const AuthProvider = ({ children }) => {
       useEffect(() => {
         fetchData();
       }, []);
+
+      
 
     const authInfo={
         isLoading,
@@ -85,7 +90,11 @@ const AuthProvider = ({ children }) => {
         currentPhoto, 
         setCurrentPhoto,
         property,
-        apiLoading
+        apiLoading,
+        filterProperty,
+        setFilterProperty,
+        showAllBtn ,
+        setShowAllBtn
     }
     
     

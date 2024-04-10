@@ -2,7 +2,10 @@ import useDocumentTitle from "../../CustomHook/useDocumentTitle"
 import { register } from 'swiper/element/bundle';
 import useWindowSize from "../../CustomHook/windowSize";
 import Properties from "../Properties/Properties";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import OurTeam from "../OurTeam/OurTeam";
+import { BiSolidDownArrow,BiSolidUpArrow } from "react-icons/bi";
+import { AuthContext } from "../AuthProvider/AuthProvider";
 
 
 
@@ -13,11 +16,27 @@ const Home = () => {
     register();
 
     const [isOpenFull, setIsOpenFull] = useState(false);
-    const options = ['Option 1', 'Option 2', 'Option 3', 'Option 4', 'Option 5','Option 6'];
+    const options = ['New York', 'California', 'Italy', 'Colorado', 'Maldives','Florida','Costa Rica','France','Nevada'];
   
     const toggleFullList = () => {
       setIsOpenFull(!isOpenFull);
     };
+
+    const {property,setFilterProperty , setShowAllBtn} = useContext(AuthContext);
+    
+
+    const filter = (filterBy) =>{
+
+        const filteredData = property.filter((item) => {
+            const country= item.country; 
+            return (
+              country.includes(filterBy)
+            );
+          });
+          setFilterProperty(filteredData);
+          setShowAllBtn(true);
+    }
+
 
     return (
         <div className="container mx-auto min-h-screen">
@@ -34,7 +53,7 @@ const Home = () => {
                     </h1>
                     <div className="absolute z-30 w-full h-full bg-black bg-opacity-30">
                     </div>
-                    <img className="w-full h-full absolue z-0" src="https://www.home-designing.com/wp-content/uploads/2020/04/wood-clad-house-exterior.jpg"/>  
+                    <img className="w-full h-full absolue z-10" src="https://www.home-designing.com/wp-content/uploads/2020/04/wood-clad-house-exterior.jpg"/>  
                     </div>
                 </swiper-slide>
                 <swiper-slide  >
@@ -86,26 +105,31 @@ const Home = () => {
                 </swiper-container>
             </div>
 
-            {/* Property Listing Header and Filer*/}
+            {/* Property Listing Header and Filter*/}
             <div className=" container mx-auto my-10">
             <h1 className="font-jetBrains text-xl">Residential Properties for Sale & Rent</h1>
 
             <div className="mt-10 relative inline-block border rounded-md w-full">
-                <div className="overflow-hidden bg-white rounded-md shadow-sm">
-                    <ul className="py-1 flex justify-evenly ">
-                    {options.slice(0, 3).map((option, index) => (
-                        <li
-                        key={index}
-                        className="block px-4 py-2 text-blue-700 hover:underline hover:cursor-pointer">
-                        {option}
-                        </li>
-                    ))}</ul>
-                    {isOpenFull && (
-                        <ul className="py-1 flex justify-evenly ">
-                        {options.slice(3).map((option, index) => (
+                <div className="overflow-hidden bg-white rounded-md ">
+                    {!isOpenFull && (
+                        <ul className="py-1 grid grid-cols-3 items-center">
+                        {options.slice(0, 3).map((option, index) => (
                             <li
+                            onClick={()=>{filter(option)}}
+                            key={index}
+                            className=" mx-auto px-4 py-2 text-blue-700 hover:underline hover:cursor-pointer">
+                            {option}
+                            </li>
+                        ))}</ul>
+                    )
+                    }
+                    {isOpenFull && (
+                        <ul className="py-1 grid grid-cols-3 items-center">
+                        {options.map((option, index) => (
+                            <li
+                            onClick={()=>{filter(option)}}
                             key={index + 3}
-                            className="block px-4 py-2 text-blue-700 hover:underline hover:cursor-pointer"
+                            className=" mx-auto px-4 py-2 text-blue-700 hover:underline hover:cursor-pointer"
                             >
                             {option}
                             </li>
@@ -116,9 +140,11 @@ const Home = () => {
                 </div>
                 
                 <button
-                    className="mx-auto w-full text-center text-xs text-green-700 font-bold hover:cursor-pointer mt-2"
+                    className="mx-auto w-full text-center text-xs text-green-700 font-bold hover:cursor-pointer mt-2 inline-flex items-center gap-2 justify-center"
                     onClick={toggleFullList}>
-                    {isOpenFull ? 'VIEW FEWER LOCATIONS' : 'VIEW ALL LOCATIONS'}
+                    {isOpenFull? 'VIEW FEWER LOCATIONS' : 'VIEW ALL LOCATIONS'}
+                    {isOpenFull?<BiSolidUpArrow/>:<BiSolidDownArrow/> }
+                    
                 </button>
                 
             </div>
@@ -126,6 +152,9 @@ const Home = () => {
             </div>
             {/*Property Listing*/}
             <Properties></Properties>
+
+            {/* Team Section */}
+            <OurTeam></OurTeam>
         </div>
     );
 };

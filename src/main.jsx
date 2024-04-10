@@ -11,6 +11,8 @@ import Register from "./Components/Register/Register";
 import AuthProvider from "./Components/AuthProvider/AuthProvider";
 import PrivateRoute from "./Components/Private/PrivateRoute";
 import Profile from "./Components/Profile/Profile";
+import UpdateProfile from "./Components/Profile/UpdateProfile";
+import EstateDetails from "./Components/EstateDetails/EstateDetails";
 
 const router = createBrowserRouter([
   {
@@ -29,6 +31,12 @@ const router = createBrowserRouter([
         </PrivateRoute>
       },
       {
+        path:'/updateProfile',
+        element: <PrivateRoute>
+          <UpdateProfile></UpdateProfile>
+        </PrivateRoute>
+      },
+      {
         path: '/login',
         element:<Login></Login>
       },
@@ -36,6 +44,12 @@ const router = createBrowserRouter([
         path: '/register',
         element:<Register></Register>
       },
+      {
+        path:'/estateDetails/:id',
+        element:<PrivateRoute>
+          <EstateDetails></EstateDetails>
+        </PrivateRoute>
+      }
     ]
   },
 ]);

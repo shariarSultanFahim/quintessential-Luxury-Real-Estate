@@ -18,7 +18,7 @@
 
 # Live Site:
 
-## Visit the live website at https://quintessentialhousing.surge.sh/
+## Visit the live website at https://quintessentialproperties.surge.sh
 
 
 
@@ -43,3 +43,5 @@
 * **Animate.css*:**
 
 * **Swiper*:**
+
+* **AOS*:**

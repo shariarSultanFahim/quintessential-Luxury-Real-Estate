@@ -9,6 +9,7 @@
     "Status": "Sale",
     "Area": "3,500 sq ft",
     "location": "Miami, Florida",
+    "country":"Florida",
     "facilities": ["Living Room", "Swimming Pool", "Gym", "Balcony", "Ocean View"]
   },
   {
@@ -21,6 +22,7 @@
     "Status": "Sale",
     "Area": "50 Acres",
     "location": "Caribbean Sea",
+    "country":"Caribbean",
     "facilities": ["Beachfront", "Private Dock", "Helipad", "Staff Quarters", "Multiple Residences"]
   },
   {
@@ -33,6 +35,7 @@
     "Status": "Sale",
     "Area": "7,000 sq ft",
     "location": "Aspen, Colorado",
+    "country":"Colorado",
     "facilities": ["Home Theater", "Spa", "Game Room", "Ski Storage", "Fireplace"]
   },
   {
@@ -45,6 +48,7 @@
     "Status": "Sale",
     "Area": "4,000 sq ft",
     "location": "Tuscany, Italy",
+    "country":"Italy",
     "facilities": ["Home Theater", "Spa", "Game Room", "Ski Storage", "Fireplace"]
   },
   {
@@ -57,6 +61,7 @@
     "Status": "Sale",
     "Area": "5,000 sq ft",
     "location": "Malibu, California",
+    "country":"California",
     "facilities": ["Beachfront Access", "Infinity Pool", "Outdoor Kitchen", "Fire Pit", "Tennis Court"]
   },
   {
@@ -69,6 +74,7 @@
     "Status": "Sale",
     "Area": "10,000 sq ft",
     "location": "Fort Lauderdale, Florida",
+    "country":"Florida",
     "facilities": ["Private Beach Access", "Boat Dock", "Clubhouse", "Tennis Courts", "Security Gate"]
   },
   {
@@ -81,6 +87,7 @@
     "Status": "Rent",
     "Area": "Varies (per bungalow)",
     "location": "Maldives",
+    "country":"Maldives",
     "facilities": ["Overwater Bungalows", "Private Pool (in some bungalows)", "Spa", "Multiple Restaurants", "Water Activities"]
   },
   {
@@ -93,10 +100,11 @@
     "Status": "Sale",
     "Area": "4,500 sq ft",
     "location": "New York City, New York",
+    "country":"New York",
     "facilities": ["Living Room with Fireplace", "Gourmet Kitchen", "Home Theater", "Fitness Center", "Rooftop Terrace"]
   },
   {
-    "image": "https://www.travelandleisure.com/thmb/QONX7Ovws-5JgiGJr92OX3Iu8T8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/mashpi-lodge-RAINFRSTHOTEL0122-829d1175038041489e191521d3d727d7.jpg",
+    "image": "https://i.pinimg.com/736x/5b/e2/c4/5be2c483535db53365f6b1bb6f147c81.jpg",
     "estate_title": "Tropical Rainforest Eco-Luxury Lodge",
     "id": 9,
     "segment_name": "Resort",
@@ -105,6 +113,7 @@
     "Status": "Rent",
     "Area": "Varies (per accommodation)",
     "location": "Costa Rica",
+    "country":"Costa Rica",
     "facilities": ["Private Bungalows", "Spa with Natural Treatments", "Guided Nature Tours", "Swimming Pool", "On-site Restaurant"]
   },
   {
@@ -117,6 +126,7 @@
     "Status": "Sale",
     "Area": "20,000 sq ft",
     "location": "French Countryside, France",
+    "country":"France",
     "facilities": ["Grand Hall", "Multiple Bedrooms and Bathrooms", "Formal Gardens", "Heated Pool", "Staff Quarters"]
   },
   {
@@ -129,6 +139,7 @@
     "Status": "Rent",
     "Area": "2,000 sq ft",
     "location": "Lake Tahoe, Nevada",
+    "country":"Nevada",
     "facilities": ["Living Room with Fireplace", "Fully Equipped Kitchen", "Game Room", "Hot Tub", "Deck with Mountain Views"]
   },
   {
@@ -141,6 +152,7 @@
     "Status": "Sale",
     "Area": "Varies (includes vineyard and residence)",
     "location": "Napa Valley, California",
+    "country":"California",
     "facilities": ["Vineyards", "Production Winery", "Luxury Residence", "Tasting Room", "Guest Cottages"]
   }    
 ]

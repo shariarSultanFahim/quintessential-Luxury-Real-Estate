@@ -24,8 +24,7 @@ const Login = () => {
     if(location.state === null){
         location.state = '/profile';
     }
-
-
+    
     const handleLogin = (e) =>{
         e.preventDefault()
  

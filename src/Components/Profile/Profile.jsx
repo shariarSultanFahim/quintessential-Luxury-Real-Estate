@@ -1,88 +1,84 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
-import { updateProfile } from "firebase/auth";
-import {toast, Toaster} from "react-hot-toast"
 import useDocumentTitle from "../../CustomHook/useDocumentTitle";
+import Aos from "aos";
+import 'aos/dist/aos.css'
 
 const Profile = () => {
+    useEffect(()=>{
+        Aos.init();
+    },[])
     useDocumentTitle('Profile');
-    const {user,setUserName,currentPhoto, setCurrentPhoto} = useContext(AuthContext);
+    const {user,currentPhoto} = useContext(AuthContext);
 
-    const [currentName, setCurrentName] = useState(user.displayName);
-    const [currentEmail, setCurrentEmail] = useState(user.email);
-
-    const handleUpdateProfile =(e)=>{
-        e.preventDefault();
-        
-        const name = e.target.name.value;
-        const photo = e.target.photo.value;
-        const phone = e.target.phone.value;
-
-        if(name.length !=0){
-            setCurrentName(name);
-            setUserName(name);
-            updateProfile(user,{
-                displayName:name
-            })
-        }
-        if(photo.length !=0){
-            setCurrentPhoto(photo);
-            updateProfile(user,{
-                photoURL:photo
-            })
-        }
-        if(phone.length !=0){
-            updateProfile(user,{
-                phoneNumber:phone,
-            })
-        }
-        toast.success('Profile Updated sucessfully!')
-
-    }
+    const [currentName] = useState(user.displayName);
+    const [currentEmail] = useState(user.email);
 
     return (
-        <div className="container mx-auto rounded  p-5 shadow-md">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="container mx-auto h-screen my-10">
+        <div data-aos="fade-up" className=" rounded  p-5 shadow-md">
+
+        <div className="flex flex-col md:flex-row gap-6">
 
             <div className="flex flex-col items-center border-r px-4 py-8">
-                <img className="rounded-full w-30 h-30 mx-auto mt-5" src={currentPhoto}/>
-                <h3 className="text-xl font-bold text-center mt-3">{currentName}</h3>
-                <p className="text-gray-500 text-center">{currentEmail}</p>
-            </div>
-
-            <div className="col-span-1 md:col-span-2">
-            <div  className="px-4 py-8">
-                <div className="flex justify-between items-center mb-3">
-                    <h4 className="text-right text-xl font-bold">Profile Settings</h4>
+                <div className="rounded-full w-52 h-52 mx-auto mt-5 overflow-hidden">
+                <img className=" w-full h-full " src={currentPhoto}/>
                 </div>
-                <form onSubmit={handleUpdateProfile}>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-                        <div><label className="block text-sm font-medium text-gray-700">Name</label>
-                        <input type="text" name="name" className="w-full px-3 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" placeholder="first name" /></div>
-
-                        <div><label className="block text-sm font-medium text-gray-700">Photo</label>
-                        <input type="text" name="photo" className="w-full px-3 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" placeholder="photo url"/></div>
-                    </div>
-                    <div><label className="block text-sm font-medium text-gray-700">Email</label>
-                        <input type="email" name="email" className="w-full px-3 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" value={currentEmail}/>
-                    </div>
-                    <div><label className="block text-sm font-medium text-gray-700">Phone</label>
-                        <input type="text" name="phone" className="w-full px-3 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" placeholder="phone number"/>
-                    </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-                        <div><label className="block text-sm font-medium text-gray-700">State</label>
-                        <input type="text" name="state" className="w-full px-3 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" placeholder="state"/></div>
-
-                        <div><label className="block text-sm font-medium text-gray-700">Country/Region</label>
-                        <input type="text" name="country" className="w-full px-3 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" placeholder="country"/></div>
-                    </div>
-                    <div className="mt-5 text-center"><button className="btn btn-primary profile-button">Update  Profile</button></div>
-                </form>
+                <h3 className="text-xl font-bold text-center mt-3">{currentName}</h3>
                 
             </div>
+
+            <div className="bg-white w-full shadow overflow-hidden sm:rounded-lg">
+                <div className="px-4 py-5 sm:px-6">
+                    <h3 className="text-lg leading-6 font-medium text-gray-900">
+                        User Info
+                    </h3>
+                    <p className="mt-1 max-w-2xl text-sm text-gray-500">
+                        Details and informations about user.
+                    </p>
+                </div>
+                <div className="border-t border-gray-200">
+                    <dl>
+                        <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                            <dt className="text-sm font-medium text-gray-500">
+                                Full name
+                            </dt>
+                            <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                            {currentName}
+                            </dd>
+                        </div>
+                        <div className="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                            <dt className="text-sm font-medium text-gray-500">
+                                Email address
+                            </dt>
+                            <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                                {currentEmail}
+                            </dd>
+                        </div>
+                        <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                            <dt className="text-sm font-medium text-gray-500">
+                                Varified
+                            </dt>
+                            <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                                {user.emailVerified?'Yes':'No'}
+                            </dd>
+                        </div>
+                        <div className="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                            <dt className="text-sm font-medium text-gray-500">
+                                Account Created On
+                            </dt>
+                            <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                                {user.metadata.creationTime}
+                            </dd>
+                        </div>
+                        
+                    </dl>
+                </div>
             </div>
-        </div><div><Toaster position="top-right"/></div>
+                
+            
         </div>
+        </div></div>
     );
 };
 

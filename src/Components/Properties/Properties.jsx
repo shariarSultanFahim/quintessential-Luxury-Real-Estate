@@ -1,36 +1,50 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import { CiLocationOn } from "react-icons/ci";
 import { BsPhone } from "react-icons/bs";
 import { MdOutlineMailOutline } from "react-icons/md";
 import { Link } from "react-router-dom";
-
+import Aos from "aos";
+import 'aos/dist/aos.css'
 
 const Properties = () => {
 
-    const {apiLoading, property} = useContext(AuthContext);
+    useEffect(()=>{
+        Aos.init();
+    },[])
+    
 
+    const {apiLoading, property, filterProperty,setFilterProperty,showAllBtn , setShowAllBtn} = useContext(AuthContext);
+    
     if (apiLoading) {
         return <div className="flex justify-center items-center m-10">
         <span className="loading loading-spinner loading-lg"></span>
         </div>;
       }
 
+    const showAll =()=>{
+        setFilterProperty(property);
+        setShowAllBtn(false);
+    }
+
     return (
-        <div className="container mx-auto my-10">
+        <div className="container mx-auto my-10 w-[98%] md:w-full">
             {
             apiLoading && <div className="flex justify-center items-center m-10">
                 <span className="loading loading-spinner loading-lg"></span>
             </div>
             }
-            
+            {
+                showAllBtn&&<div data-aos="fade-down" data-aos-offset="50" className="flex justify-center md:justify-end mb-10">
+                <button onClick={showAll} className="btn btn-success">Show All</button>
+                </div>
+            }
             <div className="flex flex-col gap-6">
                 
                 {
-                    property.map(house =>(
-                        <Link key={house.id}><div  className="flex flex-col md:flex-row gap-6 border rounded-xl">
-                        <div className="mx-auto w-full h-50 md:mx-0 md:w-96 md:h-70 ">
-                            <img className="w-full h-full rounded-t-xl md:rounded-none md:rounded-l-xl" src={house.image} alt="Property Image" />
+                    filterProperty.map(house =>(
+                    <div key={house.id} data-aos="slide-up" data-aos-offset="50"  className="flex flex-col md:flex-row gap-6 border rounded-xl">
+                        <div className="mx-auto w-full h-52 md:mx-0 md:w-[400px]  md:h-[260px] bg-cover bg-no-repeat bg-center rounded-t-xl md:rounded-none md:rounded-l-xl" style={{ backgroundImage: `url(${house.image})` }}>
                         </div>
                         <div className="space-y-2 pl-2">
                             <h1 className="text-3xl font-jetBrains font-light">{house.estate_title}</h1>
@@ -51,12 +65,13 @@ const Properties = () => {
                                 ))
                             }
                             </ul>
-                            <div className="pt-6 space-x-2">
+                            <div className="pt-6 inline-flex items-start gap-2">
                                 <button className="w-20 p-2 font-semibold text-green-800 bg-green-500 bg-opacity-40 rounded-lg inline-flex items-center gap-2" onClick={()=>document.getElementById('phone').showModal()}><BsPhone/>Call</button>
                                 <button className="w-20 p-2 font-semibold text-green-800 bg-green-500 bg-opacity-40 rounded-lg inline-flex items-center gap-2" onClick={()=>document.getElementById('email').showModal()}><MdOutlineMailOutline/>Email</button>
+                                <Link to={`/estateDetails/${house.id}`}><button className="w-32 p-2 font-semibold text-green-800 bg-green-500 bg-opacity-40 rounded-lg " >View Property</button></Link>
                             </div>
                         </div>
-                        </div></Link>
+                    </div>
                     ))
                 }    
                 
