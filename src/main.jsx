@@ -13,6 +13,7 @@ import PrivateRoute from "./Components/Private/PrivateRoute";
 import Profile from "./Components/Profile/Profile";
 import UpdateProfile from "./Components/Profile/UpdateProfile";
 import EstateDetails from "./Components/EstateDetails/EstateDetails";
+import Favourites from "./Components/Favourites/Favourites";
 
 const router = createBrowserRouter([
   {
@@ -48,6 +49,12 @@ const router = createBrowserRouter([
         path:'/estateDetails/:id',
         element:<PrivateRoute>
           <EstateDetails></EstateDetails>
+        </PrivateRoute>
+      },
+      {
+        path:'/favourites',
+        element: <PrivateRoute>
+          <Favourites></Favourites>
         </PrivateRoute>
       }
     ]

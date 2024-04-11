@@ -1,11 +1,12 @@
-import { useContext,  useRef } from 'react';
+import { useContext,  useRef, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { CiLocationOn } from 'react-icons/ci';
 import {toast, Toaster} from "react-hot-toast"
 import useWindowSize from '../../CustomHook/windowSize';
 import useDocumentTitle from '../../CustomHook/useDocumentTitle';
 import { AuthContext } from '../AuthProvider/AuthProvider';
-import { MapContainer, Marker, Popup, TileLayer, useMap } from 'react-leaflet'
+import { checkSavedProperty, removeFromSaved, saveProperty } from '../Favourites/localStorage';
+import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 
 const EstateDetails = () => {
     useDocumentTitle('Estate Details');
@@ -13,6 +14,8 @@ const EstateDetails = () => {
     const formRef = useRef(null);
     const {id} = useParams();
     const {apiLoading,property} = useContext(AuthContext);
+    const [favourite , setFavourite] = useState(false);
+
 
     if (apiLoading) {
         return <div className="flex justify-center items-center m-10">
@@ -31,11 +34,33 @@ const EstateDetails = () => {
         toast.success('Thank you for contacting us. We will get back to you.');
         formRef.current.reset();
     }
+
+    const handleFav = () =>
+    {
+        if(checkSavedProperty(id)){
+            setFavourite(false);
+            removeFromSaved(id);
+        }
+        else{
+            saveProperty(id);
+            setFavourite(true);   
+        }
+        
+    }
     return (
         <div data-aos='flip-up' className='container mx-auto'>
             <div className='my-10 rounded border-y p-5 grid grid-cols-1 lg:grid-cols-3 gap-6 items-start'>
                 <div className='lg:col-span-2'>
-                    <h1 className='text-3xl font-thin font-jetBrains border-b pb-2 pl-2'>Property details</h1>
+                    <div className='flex border-b pb-2 pl-2 justify-between'>
+                       <h1 className='text-3xl font-thin     '>Property details</h1>
+                    <button onClick={handleFav} className="p-2 font-semibold rounded-lg">
+                        {
+                            favourite?
+                            <div className="text-red-700 text-3xl"><AiFillHeart/></div>
+                            :<div className="text-green-800 text-3xl"><AiOutlineHeart/></div>
+                        }
+                    </button> 
+                    </div>
                     <div className='my-4 grid grid-cols-1 lg:grid-cols-2 gap-6 items-start'>
                         <div data-aos={(width<1024)?'fade-up':'fade-right'} className='m-2 rounded shadow-xl'>
                             <img className='rounded-t' src={currentProperty.image} alt="property image" />
@@ -97,8 +122,6 @@ const EstateDetails = () => {
                     </section>
                 </div>
             </div>
-
-
             <div><Toaster position="top-right"/></div>
         </div>
     );

@@ -1,6 +1,7 @@
 import  { createContext, useEffect, useState } from "react";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword,GoogleAuthProvider, signInWithPopup,onAuthStateChanged, signOut, GithubAuthProvider } from "firebase/auth";
 import { auth } from "../firebase/firebase.init";
+import { clearSavedProperty } from "../Favourites/localStorage";
 
 export const AuthContext = createContext(null);
 
@@ -13,6 +14,8 @@ const AuthProvider = ({ children }) => {
     const [currentPhoto, setCurrentPhoto] = useState('https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg');
     const googleProvider = new GoogleAuthProvider()
     const githubProvider = new GithubAuthProvider()
+    
+    
     const registerUser = (email,password) =>{
        return createUserWithEmailAndPassword(auth,email,password)
        
@@ -29,6 +32,7 @@ const AuthProvider = ({ children }) => {
         return signInWithPopup(auth,githubProvider)
     }
     const logOut = () =>{
+        clearSavedProperty();
         return signOut(auth)
     }
 
@@ -94,7 +98,8 @@ const AuthProvider = ({ children }) => {
         filterProperty,
         setFilterProperty,
         showAllBtn ,
-        setShowAllBtn
+        setShowAllBtn,
+        
     }
     
     

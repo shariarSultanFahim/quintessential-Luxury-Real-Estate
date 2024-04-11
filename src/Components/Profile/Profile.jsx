@@ -15,7 +15,7 @@ const Profile = () => {
     const [currentEmail] = useState(user.email);
 
     return (
-        <div className="container mx-auto h-screen my-10">
+        <div className="container mx-auto min-h-screen my-10">
         <div data-aos="fade-up" className=" rounded  p-5 shadow-md">
 
         <div className="flex flex-col md:flex-row gap-6">

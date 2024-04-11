@@ -27,6 +27,8 @@ const NavBar = () => {
     {
         user&&<li><NavLink to='/updateProfile'>Update Profile</NavLink></li>
     }
+    <li><NavLink to='/favourites'>Favourites</NavLink></li>
+    
     
     </>
 

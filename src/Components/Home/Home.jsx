@@ -4,7 +4,7 @@ import useWindowSize from "../../CustomHook/windowSize";
 import Properties from "../Properties/Properties";
 import { useContext, useState } from "react";
 import OurTeam from "../OurTeam/OurTeam";
-import { BiSolidDownArrow,BiSolidUpArrow } from "react-icons/bi";
+    import { BiSolidDownArrow,BiSolidUpArrow } from "react-icons/bi";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 
 

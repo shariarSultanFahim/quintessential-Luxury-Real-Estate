@@ -62,7 +62,7 @@ const UpdateProfile = () => {
                 <p className="text-gray-500 text-center">{currentEmail}</p>
             </div>
 
-            <div className="w-full">
+            <div className="w-full shadow sm:rounded-lg">
             <div  className="px-4 py-8">
                 <div className="flex justify-between items-center mb-3">
                     <h4 className="text-right text-xl font-bold">Profile Settings</h4>
@@ -70,7 +70,7 @@ const UpdateProfile = () => {
                 <form onSubmit={handleUpdateProfile}>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                         <div><label className="block text-sm font-medium text-gray-700">Name</label>
-                        <input type="text" name="name" className="w-full px-3 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" placeholder="first name" /></div>
+                        <input type="text" name="name" className="w-full px-3 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" placeholder="full name" /></div>
 
                         <div><label className="block text-sm font-medium text-gray-700">Photo</label>
                         <input type="text" name="photo" className="w-full px-3 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" placeholder="photo url"/></div>
@@ -86,7 +86,7 @@ const UpdateProfile = () => {
                         <div><label className="block text-sm font-medium text-gray-700">Country/Region</label>
                         <input type="text" name="country" className="w-full px-3 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" placeholder="country"/></div>
                     </div>
-                    <div className="mt-5 text-center"><button className="btn btn-primary profile-button">Update  Profile</button></div>
+                    <div className="mt-5 text-center"><button className="btn btn-primary profile-button bg-green-800 border-none hover:bg-green-900">Update Profile</button></div>
                 </form>
                 
             </div>
