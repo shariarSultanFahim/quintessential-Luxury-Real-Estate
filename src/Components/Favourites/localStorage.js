@@ -12,9 +12,6 @@ const removeFromSaved = (id) =>{
     localStorage.setItem('property',JSON.stringify(updateSavedProperty));
 }
 
-const clearSavedProperty = () =>{
-    localStorage.setItem('property',JSON.stringify(''));
-}
 
 const saveProperty = id =>{
     id = parseInt(id);
@@ -28,6 +25,7 @@ const saveProperty = id =>{
 const checkSavedProperty = id =>{
     id = parseInt(id);
     const storedProperty = getSavedProperty();
+    console.log(storedProperty)
     const exist = storedProperty.find(bookId => bookId === id);
     if(exist)
     {
@@ -39,4 +37,4 @@ const checkSavedProperty = id =>{
     }
 
 }
-export {saveProperty, getSavedProperty,clearSavedProperty,removeFromSaved,checkSavedProperty};
+export {saveProperty, getSavedProperty,removeFromSaved,checkSavedProperty};

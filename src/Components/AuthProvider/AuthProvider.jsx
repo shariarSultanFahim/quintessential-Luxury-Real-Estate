@@ -1,7 +1,6 @@
 import  { createContext, useEffect, useState } from "react";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword,GoogleAuthProvider, signInWithPopup,onAuthStateChanged, signOut, GithubAuthProvider } from "firebase/auth";
 import { auth } from "../firebase/firebase.init";
-import { clearSavedProperty } from "../Favourites/localStorage";
 
 export const AuthContext = createContext(null);
 
@@ -32,7 +31,7 @@ const AuthProvider = ({ children }) => {
         return signInWithPopup(auth,githubProvider)
     }
     const logOut = () =>{
-        clearSavedProperty();
+        localStorage.clear();
         return signOut(auth)
     }
 
