@@ -22,18 +22,18 @@ const NavBar = () => {
     }
 
     const items = <>
-    <li><NavLink to='/'>Home</NavLink></li>
-    <li><NavLink to='/profile' >Profile</NavLink></li>
+    <NavLink to={"/"} className={({ isActive }) => isActive ? 'px-3 py-2 bg-green-700 border-[1px] rounded-xl text-white ' : 'btn-ghost text-black px-3 py-2 rounded-xl'}>Home</NavLink>
+    <NavLink to='/profile' className={({ isActive }) => isActive ? 'px-3 py-2 bg-green-700 border-[1px] rounded-xl text-white' : 'btn-ghost text-black px-3 py-2 rounded-xl'}>Profile</NavLink>
     {
-        user&&<li><NavLink to='/updateProfile'>Update Profile</NavLink></li>
+        user&&<NavLink to='/updateProfile' className={({ isActive }) => isActive ? 'px-3 py-2 bg-green-700 border-[1px] rounded-xl text-white' : 'btn-ghost text-black px-3 py-2 rounded-xl'}>Update Profile</NavLink>
     }
-    <li><NavLink to='/favourites'>Favourites</NavLink></li>
+    <NavLink to='/favourites' className={({ isActive }) => isActive ? 'px-3 py-2 bg-green-700 border-[1px] rounded-xl text-white' : 'btn-ghost text-black px-3 py-2 rounded-xl'}>Favourites</NavLink>
     
     
     </>
 
     return (
-        <div data-aos="fade-down" className="relative z-[999] py-4 mb-4 container mx-auto navbar bg-base-100">
+        <div data-aos="fade-down" className="relative z-[999] py-4 mb-4 container mx-auto navbar ">
             <div className="navbar-start">
                 <div className="dropdown">
                 <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -73,8 +73,8 @@ const NavBar = () => {
                     <div>
                         {
                             !isLoading?user?
-                            <button onClick={handleLogOut} className="btn btn-ghost">Log Out</button>
-                            :<Link to='/login'><button className="btn btn-ghost">Log In</button></Link>:''
+                            <button onClick={handleLogOut} className="btn bg-transparent border-none hover:bg-green-700 hover:text-white">Log Out</button>
+                            :<Link to='/login'><button className="btn bg-transparent border-none hover:bg-green-700 hover:text-white">Log In</button></Link>:''
                         }
                         </div>
                 </div>

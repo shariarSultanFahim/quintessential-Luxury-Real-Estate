@@ -32,7 +32,7 @@ const Login = () => {
         const password = e.target.password.value;
         loginUser(email,password)
         .then(result =>{
-            toast.success('Logged in sucessfully!')
+            toast.success('Logged in sucessfully!');
         })
         .catch((error) =>{
             toast.error(error.code);
@@ -42,9 +42,8 @@ const Login = () => {
         googleLogin()
         .then(result =>{
             setUser(result.user)
-            toast.success('Logged in sucessfully!')
-            navigate(location.state)
-        })
+            toast.success('Logged in sucessfully!');
+        })  
         .catch((error) =>{
             toast.error(error.code);
         })
@@ -54,7 +53,6 @@ const Login = () => {
         .then(result =>{
             setUser(result.user)
             toast.success('Logged in sucessfully!')
-            navigate(location.state);
         })
         .catch((error) =>{
             toast.error(error.code);
@@ -63,7 +61,10 @@ const Login = () => {
 
     useEffect(()=>{
         if(user){
-            navigate(location.state)
+            setTimeout(()=>{
+                navigate(location.state);
+            },300);
+            
         }
     },[user]);  
 

@@ -1,5 +1,7 @@
 import useDocumentTitle from "../../CustomHook/useDocumentTitle"
-import { register } from 'swiper/element/bundle';
+import {Swiper, SwiperSlide} from 'swiper/react';
+import {Pagination, Scrollbar, A11y, Autoplay } from 'swiper/modules';
+import 'swiper/css/bundle';
 import useWindowSize from "../../CustomHook/windowSize";
 import Properties from "../Properties/Properties";
 import { useContext, useState } from "react";
@@ -11,9 +13,7 @@ import { AuthContext } from "../AuthProvider/AuthProvider";
 
 const Home = () => {
     useDocumentTitle('Home');
-    const {width} = useWindowSize();
 
-    register();
 
     const [isOpenFull, setIsOpenFull] = useState(false);
     const options = ['New York', 'California', 'Italy', 'Colorado', 'Maldives','Florida','Costa Rica','France','Nevada'];
@@ -43,10 +43,23 @@ const Home = () => {
             
             {/* Corousel Banner */}
             <div className="mx-auto w-[95%] h-[150px] md:w-full md:h-[500px] overflow-hidden">
-                <swiper-container slides-per-view="1" Speed="500" Loop='true' Navigation={(width < 768)?'false':'true'}>
-                <swiper-slide  >
+                <Swiper
+                 modules={[Pagination, Scrollbar, A11y,Autoplay]}
+                 autoplay={{
+                     delay: 1500,
+                     disableOnInteraction: false,
+                   }}
+                 spaceBetween={50}
+                 slidesPerView={1}
+                 loop={true}
+                 pagination={{ clickable: true }}
+                 scrollbar={{ draggable: true }}
+            
+                 className="mySwiper"
+                 >
+                <SwiperSlide  >
                     <div className="relative">
-                    <h1 className="animate__animated animate__backInLeft text-3xl left-[10%] top-[10%]  md:text-6xl absolute z-50 md:top-[25%] md:left-12 text-white font-jetBrains">Quintessential <br /> 
+                    <h1 className="animate__animated animate__bounceInLeft text-3xl left-[10%] top-[10%]  md:text-6xl absolute z-50 md:top-[25%] md:left-12 text-white font-jetBrains">Quintessential <br /> 
                     <span className="text-xl md:text-4xl ">Luxury Real Estates</span> 
                     <br />
                     <span className="text-xl font-thin md:text-3xl">Villa</span>
@@ -55,20 +68,20 @@ const Home = () => {
                     </div>
                     <img className="w-full h-full absolue z-10" src="https://www.home-designing.com/wp-content/uploads/2020/04/wood-clad-house-exterior.jpg"/>  
                     </div>
-                </swiper-slide>
-                <swiper-slide  >
+                </SwiperSlide>
+                <SwiperSlide  >
                     <div className="relative">
-                    <h1 className="text-3xl left-[10%] top-[10%]  md:text-6xl absolute z-50 md:top-[20%] md:left-12 text-white font-jetBrains">Quintessential <br /> 
+                    <h1 className="animate__animated animate__bounceInLeft text-3xl left-[10%] top-[10%]  md:text-6xl absolute z-50 md:top-[20%] md:left-12 text-white font-jetBrains">Quintessential <br /> 
                     <span className="text-xl md:text-4xl ">Luxury Real Estates</span> 
                     <br />
                     <span className="text-xl font-thin md:text-3xl">Rainforest Luxury Lodge</span>
                     </h1>
                     <img className="w-full h-full absolue z-0" src="https://www.travelandleisure.com/thmb/QONX7Ovws-5JgiGJr92OX3Iu8T8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/mashpi-lodge-RAINFRSTHOTEL0122-829d1175038041489e191521d3d727d7.jpg "/>  
                     </div>
-                </swiper-slide>
-                <swiper-slide  >
+                </SwiperSlide>
+                <SwiperSlide  >
                     <div className="relative">
-                    <h1 className="text-3xl left-[10%] top-[10%]  md:text-6xl absolute z-50 md:top-[20%] md:left-12 text-white font-jetBrains">Quintessential <br /> 
+                    <h1 className="animate__animated animate__bounceInLeft text-3xl left-[10%] top-[10%]  md:text-6xl absolute z-50 md:top-[20%] md:left-12 text-white font-jetBrains">Quintessential <br /> 
                     <span className="text-xl md:text-4xl ">Luxury Real Estates</span> 
                     <br />
                     <span className="text-xl font-thin md:text-3xl">Mountain Resort</span>
@@ -77,10 +90,10 @@ const Home = () => {
                     </div>
                     <img className="w-full h-full absolue z-0" src="https://static2.mansionglobal.com/production/media/article-images/f76d1875e40e1cf67b01ec46174f1a5b/large_S1-HQ229_wsjski_M_20200930113704.jpg"/>  
                     </div>
-                </swiper-slide>
-                <swiper-slide  >
+                </SwiperSlide>
+                <SwiperSlide  >
                     <div className="relative">
-                    <h1 className="text-3xl left-[10%] top-[10%]  md:text-6xl absolute z-50 md:top-[20%] md:left-12 text-white font-jetBrains">Quintessential <br /> 
+                    <h1 className="animate__animated animate__bounceInLeft text-3xl left-[10%] top-[10%]  md:text-6xl absolute z-50 md:top-[20%] md:left-12 text-white font-jetBrains">Quintessential <br /> 
                     <span className="text-xl md:text-4xl ">Luxury Real Estates</span> 
                     <br />
                     <span className="text-xl font-thin md:text-3xl">Sky View Penthouse</span>
@@ -89,10 +102,10 @@ const Home = () => {
                     </div>
                     <img className="w-full h-full absolue z-0" src="https://cdn.tatlerasia.com/asiatatler/i/ph/2019/07/18161159-3-super-penthouse_cover_2000x1168.jpg"/>  
                     </div>
-                </swiper-slide>
-                <swiper-slide  >
+                </SwiperSlide>
+                <SwiperSlide  >
                     <div className="relative">
-                    <h1 className="text-3xl left-[10%] top-[10%]  md:text-6xl absolute z-50 md:top-[20%] md:left-12 text-white font-jetBrains">Quintessential <br /> 
+                    <h1 className="animate__animated animate__bounceInLeft text-3xl left-[10%] top-[10%]  md:text-6xl absolute z-50 md:top-[20%] md:left-12 text-white font-jetBrains">Quintessential <br /> 
                     <span className="text-xl md:text-4xl ">Luxury Real Estates</span> 
                     <br />
                     <span className="text-xl font-thin md:text-3xl">Private Island</span>
@@ -101,8 +114,8 @@ const Home = () => {
                     </div>
                     <img className="w-full h-full absolue z-0" src="https://moneyinc.com/wp-content/uploads/2016/05/Amillarah-Private-Islands.gif"/>  
                     </div>
-                </swiper-slide>
-                </swiper-container>
+                </SwiperSlide>
+                </Swiper>
             </div>
 
             {/* Property Listing Header and Filter*/}
